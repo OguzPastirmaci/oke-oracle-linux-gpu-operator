@@ -64,7 +64,10 @@ docker build . -t <yourrepository name>/driver:$DRIVER_VERSION-ol7.9 --build-arg
 Example:
 
 ```
-docker build . -t oguzpastirmaci/driver:510.85.02-ol7.9 --build-arg DRIVER_VERSION="510.85.02" --build-arg CUDA_VERSION=11.7.1 --build-arg TARGETARCH=amd64
+DRIVER_VERSION=510.85.02
+CUDA_VERSION=11.7.1
+
+docker build . -t oguzpastirmaci/driver:$DRIVER_VERSION-ol7.9 --build-arg DRIVER_VERSION=$DRIVER_VERSION --build-arg CUDA_VERSION=$CUDA_VERSION --build-arg TARGETARCH=amd64
 ```
 
 Then push the image to your image repository.
