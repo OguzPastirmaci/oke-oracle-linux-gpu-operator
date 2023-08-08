@@ -51,7 +51,7 @@ ADD RPM-GPG-KEY-oracle /etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 ```
 
 #### Build and push the custom image
-Make sure you choose a compatible GPU driver and CUDA pair. Info [here](https://docs.nvidia.com/deploy/cuda-compatibility/)
+Make sure you choose a compatible GPU driver and CUDA pair. More nfo [here.](https://docs.nvidia.com/deploy/cuda-compatibility/)
 
 
 ```
