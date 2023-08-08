@@ -30,7 +30,7 @@ enabled=1
 curl -s https://yum.oracle.com/RPM-GPG-KEY-oracle-ol7 -o RPM-GPG-KEY-oracle
 ```
 
-So the final content of driver/centos7 folder will be
+So the final content of driver/centos7 directory will be
 
 ```
 -rw-rw-r-- 1 opc opc  3106 Aug  4 18:11 Dockerfile
