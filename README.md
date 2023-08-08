@@ -51,7 +51,7 @@ ADD RPM-GPG-KEY-oracle /etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 ```
 
 ### Build and push the custom image
-Make sure you choose a compatible GPU driver and CUDA pair. More nfo [here.](https://docs.nvidia.com/deploy/cuda-compatibility/)
+Make sure you choose a compatible GPU driver and CUDA pair. More info [here.](https://docs.nvidia.com/deploy/cuda-compatibility/)
 
 
 ```
@@ -85,7 +85,7 @@ The instructions are here for non-RDMA workloads only.
 
 Deploy an OKE cluster for testing your image. You can use the template [here.](https://github.com/OguzPastirmaci/misc/blob/master/oke/terraform/non-rdma.tf)
 
-Once your cluster is up an running, follow the steps below.
+Once your cluster is up and running, follow the steps below.
 
 ### Get the latest Helm 3 version
 ```sh
