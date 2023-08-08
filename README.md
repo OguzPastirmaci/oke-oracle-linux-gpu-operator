@@ -1,5 +1,9 @@
 # Running the GPU driver in a container with Oracle Linux 7 with Nvidia GPU Operator
 
+Kubernetes provides access to special hardware resources such as NVIDIA GPUs, NICs, RoCE/Infiniband adapters and other devices through the device plugin framework. However, configuring and managing nodes with these hardware resources requires configuration of multiple software components such as drivers, container runtimes or other libraries which are difficult and prone to errors. The NVIDIA GPU Operator uses the operator framework within Kubernetes to automate the management of all NVIDIA software components needed to provision GPU. These components include the NVIDIA drivers (to enable CUDA), Kubernetes device plugin for GPUs, the NVIDIA Container Toolkit, automatic node labelling using GFD, DCGM based monitoring and others.
+
+Nvidia GPU operator is deployed with a Helm chart that allows you to attach pods to the right GPUs and handle them as resources. You can use the GPU Operator with pre-installed GPU drivers on the host or deploy the GPU drivers on the cluster using a container. This allows you to switch Cuda and GPU driver versions quickly by redeploying the GPU Operator driver container with a different version (as long as the combination is supported by Nvidia)
+
 You will need:
 
 - A node with Docker installed
