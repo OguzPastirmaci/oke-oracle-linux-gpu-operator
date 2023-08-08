@@ -27,7 +27,7 @@ enabled=1
 
 #### Create the OL7 RPM key in driver/centos7
 ```
-curl -s https://yum.oracle.com/RPM-GPG-KEY-oracle-ol7 > RPM-GPG-KEY-oracle
+curl -s https://yum.oracle.com/RPM-GPG-KEY-oracle-ol7 -o RPM-GPG-KEY-oracle
 ```
 
 So the final content of driver/centos7 folder will be
