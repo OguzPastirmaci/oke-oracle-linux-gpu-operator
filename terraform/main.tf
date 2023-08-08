@@ -26,7 +26,6 @@ module "oke" {
   bastion_allowed_cidrs = ["0.0.0.0/0"]
   allow_worker_ssh_access     = true
   control_plane_allowed_cidrs = ["0.0.0.0/0"]
-  #preferred_load_balancer = "public"
 
   # Resource creation
   assign_dns           = false
@@ -70,7 +69,13 @@ module "oke" {
       mode        = "node-pool", image_type = "custom", image_id = "ocid1.image.oc1.phx.aaaaaaaa3d6lx3fhhmmpnvm24zzfuqcrqtna76szxqvvv2p2szwos6gzjozq", size = 1, shape = "VM.GPU.A10.1", boot_volume_size = 256, placement_ads = [3],
       node_labels = { "oci.oraclecloud.com/disable-gpu-device-plugin" : "true" },
       cloud_init = [{ content = "./cloud-init/gpu-cloud-init-ol.sh" }],
-    }  
+    }
+    ol7-a100-rdma = {
+      description = "GPU pool", enabled = true, disable_default_cloud_init=true,
+      mode        = "cluster-network", image_type = "custom", image_id = "ocid1.image.oc1.phx.aaaaaaaa3ydxr7bgho5gfh5xybpzukn36nrs3qiizkioyvaosrmh2j4cj2qa", size = 2, shape = "BM.GPU.A100-v2.8", boot_volume_size = 256, placement_ads = [1],
+      node_labels = { "oci.oraclecloud.com/disable-gpu-device-plugin" : "true" },
+      cloud_init = [{ content = "./cloud-init/gpu-cloud-init-ol.sh" }],
+    }
   }
 }
 terraform {
