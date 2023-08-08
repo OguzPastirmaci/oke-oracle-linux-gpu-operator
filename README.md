@@ -25,12 +25,12 @@ gpgcheck=1
 enabled=1
 ```
 
-#### Create the OL7 RPM key in driver/centos
+#### Create the OL7 RPM key in driver/centos7
 ```
 curl -s https://yum.oracle.com/RPM-GPG-KEY-oracle-ol7 > RPM-GPG-KEY-oracle
 ```
 
-So the final content of driver/centos will be
+So the final content of driver/centos7 folder will be
 
 ```
 -rw-rw-r-- 1 opc opc  3106 Aug  4 18:11 Dockerfile
@@ -48,4 +48,29 @@ Open the Dockerfile and add the following lines after `ADD install.sh /tmp/`
 ```
 ADD ol7_latest.repo /etc/yum.repos.d/
 ADD RPM-GPG-KEY-oracle /etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+```
+
+#### Build and push the custom image
+Make sure you choose a compatible GPU driver and CUDA pair. Info [here](https://docs.nvidia.com/deploy/cuda-compatibility/)
+
+
+```
+DRIVER_VERSION=
+CUDA_VERSION=
+
+docker build . -t <yourrepository name>/driver:$DRIVER_VERSION-ol7.9 --build-arg DRIVER_VERSION=$DRIVER_VERSION --build-arg CUDA_VERSION=$CUDA_VERSION --build-arg TARGETARCH=amd64
+```
+
+Example:
+
+```
+docker build . -t oguzpastirmaci/driver:510.85.02-ol7.9 --build-arg DRIVER_VERSION="510.85.02" --build-arg CUDA_VERSION=11.7.1 --build-arg TARGETARCH=amd64
+```
+
+Then push the image to your image repository.
+
+Example:
+
+```
+docker push oguzpastirmaci/driver:510.85.02-ol7.9
 ```
