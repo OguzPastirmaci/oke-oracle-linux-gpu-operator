@@ -81,7 +81,7 @@ docker push oguzpastirmaci/driver:510.85.02-ol7.9
 
 ### Testing your image
 
-The instructios are here for non-RDMA workloads only.
+The instructions are here for non-RDMA workloads only.
 
 Deploy an OKE cluster for testing your image. You can use the template [here.](https://github.com/OguzPastirmaci/misc/blob/master/oke/terraform/non-rdma.tf)
 
