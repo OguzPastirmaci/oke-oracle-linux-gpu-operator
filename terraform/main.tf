@@ -61,18 +61,18 @@ module "oke" {
   worker_pools = {
     system = {
       description = "CPU pool", enabled = true
-      mode        = "node-pool", image_type = "custom", image_id = "ocid1.image.oc1.phx.aaaaaaaa3d6lx3fhhmmpnvm24zzfuqcrqtna76szxqvvv2p2szwos6gzjozq", boot_volume_size = 256, shape = "VM.Standard.E4.Flex", ocpus = 16, memory = 128, size = 1,
+      mode        = "node-pool", image_type = "custom", image_id = "", boot_volume_size = 256, shape = "VM.Standard.E4.Flex", ocpus = 16, memory = 128, size = 1,
       cloud_init = [{ content = "./cloud-init/cloud-init.sh" }],
     }
     ol7-a10 = {
       description = "GPU pool", enabled = true
-      mode        = "node-pool", image_type = "custom", image_id = "ocid1.image.oc1.phx.aaaaaaaa3d6lx3fhhmmpnvm24zzfuqcrqtna76szxqvvv2p2szwos6gzjozq", size = 1, shape = "VM.GPU.A10.1", boot_volume_size = 256, placement_ads = [3],
+      mode        = "node-pool", image_type = "custom", image_id = "", size = 1, shape = "VM.GPU.A10.1", boot_volume_size = 256, placement_ads = [3],
       node_labels = { "oci.oraclecloud.com/disable-gpu-device-plugin" : "true" },
       cloud_init = [{ content = "./cloud-init/gpu-cloud-init-ol.sh" }],
     }
     ol7-a100-rdma = {
       description = "GPU pool", enabled = true, disable_default_cloud_init=true,
-      mode        = "cluster-network", image_type = "custom", image_id = "ocid1.image.oc1.phx.aaaaaaaa3ydxr7bgho5gfh5xybpzukn36nrs3qiizkioyvaosrmh2j4cj2qa", size = 2, shape = "BM.GPU.A100-v2.8", boot_volume_size = 256, placement_ads = [1],
+      mode        = "cluster-network", image_type = "custom", image_id = "", size = 2, shape = "BM.GPU.A100-v2.8", boot_volume_size = 256, placement_ads = [1],
       node_labels = { "oci.oraclecloud.com/disable-gpu-device-plugin" : "true" },
       cloud_init = [{ content = "./cloud-init/gpu-cloud-init-ol.sh" }],
     }
