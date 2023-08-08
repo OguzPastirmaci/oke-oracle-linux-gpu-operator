@@ -6,7 +6,7 @@ You will need:
 - A Docker repository to push your image to (OCIR, Docker Hub, etc.)
 
 
-#### Clone the Nvidia driver repository
+### Clone the Nvidia driver repository
 
 ```
 git clone https://gitlab.com/nvidia/container-images/driver.git
@@ -14,7 +14,7 @@ git clone https://gitlab.com/nvidia/container-images/driver.git
 cd driver/centos7
 ```
 
-#### Save the following content as ol7_latest.repo in driver/centos7 directory
+### Save the following content as ol7_latest.repo in driver/centos7 directory
 
 ```
 [ol7_latest]
@@ -25,7 +25,7 @@ gpgcheck=1
 enabled=1
 ```
 
-#### Create the OL7 RPM key in driver/centos7 directory
+### Create the OL7 RPM key in driver/centos7 directory
 ```
 curl -s https://yum.oracle.com/RPM-GPG-KEY-oracle-ol7 -o RPM-GPG-KEY-oracle
 ```
@@ -42,7 +42,7 @@ So the final content of driver/centos7 directory will be
 -rw-rw-r-- 1 opc opc  1011 Aug  8 20:37 RPM-GPG-KEY-oracle
 ```
 
-#### Edit the Dockerfile in driver/centos7 directory
+### Edit the Dockerfile in driver/centos7 directory
 Open the Dockerfile and add the following lines after `ADD install.sh /tmp/`
 
 ```
@@ -50,7 +50,7 @@ ADD ol7_latest.repo /etc/yum.repos.d/
 ADD RPM-GPG-KEY-oracle /etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 ```
 
-#### Build and push the custom image
+### Build and push the custom image
 Make sure you choose a compatible GPU driver and CUDA pair. More nfo [here.](https://docs.nvidia.com/deploy/cuda-compatibility/)
 
 
@@ -79,7 +79,7 @@ docker push oguzpastirmaci/driver:510.85.02-ol7.9
 ```
 
 
-### Testing your image
+## Testing your image
 
 The instructions are here for non-RDMA workloads only.
 
@@ -87,21 +87,21 @@ Deploy an OKE cluster for testing your image. You can use the template [here.](h
 
 Once your cluster is up an running, follow the steps below.
 
-#### Get the latest Helm 3 version
+### Get the latest Helm 3 version
 ```sh
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
 ./get_helm.sh
 ```
 
-#### Add Helm repos for Network Operator and GPU Operator
+### Add Helm repos for Network Operator and GPU Operator
 ```sh
 helm repo add nvidia https://helm.ngc.nvidia.com/nvidia
 helm repo update
 ```
 
 
-#### Deploy GPU Operator with the image you built
+### Deploy GPU Operator with the image you built
 In your OKE cluster, run the following command to deploy the GPU Operator with the image you built. 
 
 ```
