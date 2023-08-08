@@ -78,6 +78,15 @@ Example:
 docker push oguzpastirmaci/driver:510.85.02-ol7.9
 ```
 
+
+### Testing your image
+
+The instructios are here for non-RDMA workloads only.
+
+Deploy an OKE cluster for testing your image. You can use the template [here.](https://github.com/OguzPastirmaci/misc/blob/master/oke/terraform/non-rdma.tf)
+
+Once your cluster is up an running, follow the steps below.
+
 #### Get the latest Helm 3 version
 ```sh
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
