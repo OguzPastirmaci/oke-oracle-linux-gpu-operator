@@ -14,7 +14,7 @@ git clone https://gitlab.com/nvidia/container-images/driver.git
 cd driver/centos7
 ```
 
-#### Save the following content as ol7_latest.repo in driver/centos7
+#### Save the following content as ol7_latest.repo in driver/centos7 directory
 
 ```
 [ol7_latest]
@@ -25,7 +25,7 @@ gpgcheck=1
 enabled=1
 ```
 
-#### Create the OL7 RPM key in driver/centos7
+#### Create the OL7 RPM key in driver/centos7 directory
 ```
 curl -s https://yum.oracle.com/RPM-GPG-KEY-oracle-ol7 -o RPM-GPG-KEY-oracle
 ```
@@ -42,7 +42,7 @@ So the final content of driver/centos7 folder will be
 -rw-rw-r-- 1 opc opc  1011 Aug  8 20:37 RPM-GPG-KEY-oracle
 ```
 
-#### Edit the Dockerfile in driver/centos7
+#### Edit the Dockerfile in driver/centos7 directory
 Open the Dockerfile and add the following lines after `ADD install.sh /tmp/`
 
 ```
