@@ -77,3 +77,44 @@ Example:
 ```
 docker push oguzpastirmaci/driver:510.85.02-ol7.9
 ```
+
+#### Get the latest Helm 3 version
+```sh
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+```
+
+#### Add Helm repos for Network Operator and GPU Operator
+```sh
+helm repo add nvidia https://helm.ngc.nvidia.com/nvidia
+helm repo update
+```
+
+
+#### Deploy GPU Operator with the image you built
+In your OKE cluster, run the following command to deploy the GPU Operator with the image you built. 
+
+```
+helm install --wait \
+  -n gpu-operator --create-namespace \
+  gpu-operator nvidia/gpu-operator \
+  --version v23.3.2 \
+  --set operator.defaultRuntime=crio \
+  --set driver.repository=<The repository that you pushed your image> \
+  --set driver.version=<The driver version in your pushed image. Only the version, don't add ol7.9 at the end> \
+  --set toolkit.version=v1.13.5-centos7
+```
+
+Example:
+
+```
+helm install --wait \
+  -n gpu-operator --create-namespace \
+  gpu-operator nvidia/gpu-operator \
+  --version v23.3.2 \
+  --set operator.defaultRuntime=crio \
+  --set driver.repository=oguzpastirmaci \
+  --set driver.version=510.85.02 \
+  --set toolkit.version=v1.13.5-centos7
+```
