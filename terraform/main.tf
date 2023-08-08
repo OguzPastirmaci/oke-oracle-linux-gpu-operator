@@ -33,10 +33,7 @@ module "oke" {
   create_bastion       = true
   create_cluster       = true
   create_operator      = true
-  create_iam_resources = false
-  use_defined_tags     = false
   
-
   # Use the first /17 block in each region for OKE resources
   subnets = {
     bastion  = { create = "always", newbits = 11 }
@@ -62,7 +59,6 @@ module "oke" {
     system = {
       description = "CPU pool", enabled = true
       mode        = "node-pool", image_type = "custom", image_id = "", boot_volume_size = 256, shape = "VM.Standard.E4.Flex", ocpus = 16, memory = 128, size = 1,
-      cloud_init = [{ content = "./cloud-init/cloud-init.sh" }],
     }
     ol7-a10 = {
       description = "GPU pool", enabled = true
@@ -74,7 +70,7 @@ module "oke" {
       description = "GPU pool", enabled = true, disable_default_cloud_init=true,
       mode        = "cluster-network", image_type = "custom", image_id = "", size = 2, shape = "BM.GPU.A100-v2.8", boot_volume_size = 256, placement_ads = [1],
       node_labels = { "oci.oraclecloud.com/disable-gpu-device-plugin" : "true" },
-      cloud_init = [{ content = "./cloud-init/gpu-cloud-init-ol.sh" }],
+      cloud_init = [{ content = "./cloud-init/gpu-cloud-init-ol-rdma.sh" }],
     }
   }
 }
