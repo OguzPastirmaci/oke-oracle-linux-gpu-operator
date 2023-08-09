@@ -4,7 +4,7 @@ Kubernetes provides access to special hardware resources such as NVIDIA GPUs, NI
 
 Nvidia GPU Operator is deployed with a Helm chart that allows you to attach pods to the right GPUs and handle them as resources. You can use the GPU Operator with pre-installed GPU drivers on the host or deploy the GPU drivers on the cluster using a container. This allows you to switch Cuda and GPU driver versions quickly by redeploying the GPU Operator driver container with a different version (as long as the combination is supported by Nvidia).
 
-##IMPORTANT NOTES##
+## IMPORTANT NOTES
 
 - You will need a node that is running an Oracle Linux 7 image with the Red Hat Compatible Kernel (RHCK) with Docker installed. You can find the instructions to change the kernel from UEK to RHCK [here](https://github.com/OguzPastirmaci/misc/blob/master/change-ol-kernel-to-rhck.md).
 
