@@ -10,7 +10,7 @@ Nvidia GPU Operator is deployed with a Helm chart that allows you to attach pods
 
 - You will need a Docker repository to push your image to (OCIR, Docker Hub, etc.)
 
-- When deploying your GPU worker nodes on OKE, you will need an image that is an Oracle Linux 7 image with the Red Hat Compatible Kernel (RHCK). You can find the instructions to change the kernel from UEK to RHCK [here](https://github.com/OguzPastirmaci/misc/blob/master/change-ol-kernel-to-rhck.md).
+- When deploying your GPU worker nodes on OKE, you will need an image that is an Oracle Linux 7 image with the Red Hat Compatible Kernel (RHCK). You can find the instructions to change the kernel from UEK to RHCK [here](https://github.com/OguzPastirmaci/misc/blob/master/change-ol-kernel-to-rhck.md). Oracle Linux 8 or Ubuntu will not work with the below instructions.
 
 
 ### Clone the Nvidia driver repository
