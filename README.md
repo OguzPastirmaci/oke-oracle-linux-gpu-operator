@@ -2,7 +2,7 @@
 
 Kubernetes provides access to special hardware resources such as NVIDIA GPUs, NICs, RoCE/Infiniband adapters and other devices through the device plugin framework. However, configuring and managing nodes with these hardware resources requires configuration of multiple software components such as drivers, container runtimes or other libraries which are difficult and prone to errors. The NVIDIA GPU Operator uses the operator framework within Kubernetes to automate the management of all NVIDIA software components needed to provision GPU. These components include the NVIDIA drivers (to enable CUDA), Kubernetes device plugin for GPUs, the NVIDIA Container Toolkit, automatic node labelling using GFD, DCGM based monitoring and others.
 
-Nvidia GPU operator is deployed with a Helm chart that allows you to attach pods to the right GPUs and handle them as resources. You can use the GPU Operator with pre-installed GPU drivers on the host or deploy the GPU drivers on the cluster using a container. This allows you to switch Cuda and GPU driver versions quickly by redeploying the GPU Operator driver container with a different version (as long as the combination is supported by Nvidia).
+Nvidia GPU Operator is deployed with a Helm chart that allows you to attach pods to the right GPUs and handle them as resources. You can use the GPU Operator with pre-installed GPU drivers on the host or deploy the GPU drivers on the cluster using a container. This allows you to switch Cuda and GPU driver versions quickly by redeploying the GPU Operator driver container with a different version (as long as the combination is supported by Nvidia).
 
 You will need:
 
@@ -131,3 +131,24 @@ helm install --wait \
   --set driver.version=510.85.02 \
   --set toolkit.version=v1.13.5-centos7
 ```
+
+### Test the GPU Operator image you built
+Save the following manifest as yaml and then deploy it.
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nvidia-version-check
+spec:
+  restartPolicy: OnFailure
+  containers:
+  - name: nvidia-version-check
+    image: nvidia/cuda:11.7.1-base-ubuntu20.04
+    command: ["nvidia-smi"]
+    resources:
+      limits:
+         nvidia.com/gpu: "1"
+```
+
+Then check the logs with `kubectl logs nvidia-version-check`. You should see the `nvidia-smi` output with the correct GPU driver and CUDA version.
