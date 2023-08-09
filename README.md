@@ -68,7 +68,8 @@ CUDA_VERSION=
 docker build . -t <yourrepository name>/driver:$DRIVER_VERSION-ol7.9 --build-arg DRIVER_VERSION=$DRIVER_VERSION --build-arg CUDA_VERSION=$CUDA_VERSION --build-arg TARGETARCH=amd64
 ```
 
-#### Important note: #### You can use any registry (e.g. `oguzpastirmaci` above is on Docker Hub), but the repository name needs to be `driver` in above command. Otherwise GPU Operator won't be able to find the correct image.
+#### Important note:
+You can use any registry (e.g. `oguzpastirmaci` above is on Docker Hub), but the repository name needs to be `driver` in above command. Otherwise GPU Operator won't be able to find the correct image.
 
 Example:
 
