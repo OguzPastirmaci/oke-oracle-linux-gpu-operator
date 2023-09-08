@@ -60,7 +60,7 @@ cd cuda
 ### Building the GPU driver image
 Once you built and pushed the CUDA images to your repo, download the files in the [ol8 directory](./files/ol8) to a directory in your image builder machine.
 
-Make sure that you change the first line in the Dockerfile to your repository.
+IMPORTANT: Make sure that you change the first line in the Dockerfile to your repository.
 
 ```
 curl -s https://raw.githubusercontent.com/OguzPastirmaci/oke-oracle-linux-gpu-operator/main/files/ol8/Dockerfile -o Dockerfile
