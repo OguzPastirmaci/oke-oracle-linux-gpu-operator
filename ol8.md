@@ -47,7 +47,14 @@ The below command will build 3 images (base, devel, runtime). The builds will ta
 
 ```
 cd cuda
-./build.sh -d --image-name <my-remote-container-registry>/cuda --cuda-version $CUDA_VERSION --os oraclelinux --os-version 8 --arch x86_64 --push
+./build.sh -d --image-name <your repository>/cuda --cuda-version $CUDA_VERSION --os oraclelinux --os-version 8 --arch x86_64 --push
+```
+
+Example:
+
+```
+cd cuda
+./build.sh -d --image-name oguzpastirmaci/cuda --cuda-version $CUDA_VERSION --os oraclelinux --os-version 8 --arch x86_64 --push
 ```
 
 ### Building the GPU driver image
