@@ -51,7 +51,29 @@ cd cuda
 ```
 
 ### Building the GPU driver image
-Once you built and pushed the CUDA images to a repo
+Once you built and pushed the CUDA images to your repo, download the files in the [ol8 directory](./files/ol8) to a directory in your image builder machine.
+
+Make sure that you change the first line in the Dockerfile to your repository.
+
+```
+curl -s https://raw.githubusercontent.com/OguzPastirmaci/oke-oracle-linux-gpu-operator/main/files/ol8/Dockerfile -o Dockerfile
+
+curl -s https://raw.githubusercontent.com/OguzPastirmaci/oke-oracle-linux-gpu-operator/main/files/ol8/nvidia-driver -o nvidia-driver
+
+curl -s https://raw.githubusercontent.com/OguzPastirmaci/oke-oracle-linux-gpu-operator/main/files/ol8/empty -o empty
+```
+
+Then build the GPU driver image with the below command and push it to your registry:
+
+```
+DRIVER_VERSION=
+CUDA_VERSION=
+
+docker build . -t <your repository>/driver:$DRIVER_VERSION-ol8.8 --build-arg DRIVER_VERSION=$DRIVER_VERSION --build-arg CUDA_VERSION=$CUDA_VERSION --build-arg TARGETARCH=amd64
+```
+
+
+
 
 
 
