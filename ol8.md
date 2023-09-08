@@ -70,12 +70,43 @@ DRIVER_VERSION=
 CUDA_VERSION=
 
 docker build . -t <your repository>/driver:$DRIVER_VERSION-ol8.8 --build-arg DRIVER_VERSION=$DRIVER_VERSION --build-arg CUDA_VERSION=$CUDA_VERSION --build-arg TARGETARCH=amd64
+
+docker push <your repository>/driver:$DRIVER_VERSION-ol8.8
 ```
 
+Example:
 
+```
+docker build . -t oguzpastirmaci/driver:$DRIVER_VERSION-ol8.8 --build-arg DRIVER_VERSION=$DRIVER_VERSION --build-arg CUDA_VERSION=$CUDA_VERSION --build-arg TARGETARCH=amd64
 
+docker push oguzpastirmaci/driver:$DRIVER_VERSION-ol8.8
+```
 
+Finally, when the GPU driver image is available in your registry, you can deploy it with the GPU Operator
 
+```
+helm install --wait \
+  -n gpu-operator --create-namespace \
+  gpu-operator nvidia/gpu-operator \
+  --version v23.6.1 \
+  --set operator.defaultRuntime=crio \
+  --set driver.repository=<The repository that you pushed your image> \
+  --set driver.version=<The driver version in your pushed image. Only the version, don't add ol8.8 at the end> \
+  --set toolkit.version=v1.14.0-centos7
+```
+
+Example:
+
+```
+helm install --wait \
+  -n gpu-operator --create-namespace \
+  gpu-operator nvidia/gpu-operator \
+  --version v23.6.1 \
+  --set operator.defaultRuntime=crio \
+  --set driver.repository=oguzpastirmaci \
+  --set driver.version=525.125.06 \
+  --set toolkit.version=v1.14.0-centos7
+```
 
 
 
