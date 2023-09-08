@@ -84,6 +84,9 @@ docker push <your repository>/driver:$DRIVER_VERSION-ol8.8
 Example:
 
 ```
+DRIVER_VERSION=535.54.03
+CUDA_VERSION=12.2.0
+
 docker build . -t oguzpastirmaci/driver:$DRIVER_VERSION-ol8.8 --build-arg DRIVER_VERSION=$DRIVER_VERSION --build-arg CUDA_VERSION=$CUDA_VERSION --build-arg TARGETARCH=amd64
 
 docker push oguzpastirmaci/driver:$DRIVER_VERSION-ol8.8
