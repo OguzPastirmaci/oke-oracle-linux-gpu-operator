@@ -33,7 +33,7 @@ We will use the Rocky Linux 8 Dockerfiles as our base and make changes.
 
 
 ```
-CUDA_VERSION=11.7.1
+CUDA_VERSION=
 
 cp -R cuda/dist/$CUDA_VERSION/rockylinux8 cuda/dist/$CUDA_VERSION/oraclelinux8
 
@@ -49,3 +49,11 @@ The below command will build 3 images (base, devel, runtime). The builds will ta
 cd cuda
 ./build.sh -d --image-name <my-remote-container-registry>/cuda --cuda-version $CUDA_VERSION --os oraclelinux --os-version 8 --arch x86_64 --push
 ```
+
+### Building the GPU driver image
+Once you built and pushed the CUDA images to a repo
+
+
+
+
+
