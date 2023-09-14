@@ -68,6 +68,8 @@ curl -s https://raw.githubusercontent.com/OguzPastirmaci/oke-oracle-linux-gpu-op
 curl -s https://raw.githubusercontent.com/OguzPastirmaci/oke-oracle-linux-gpu-operator/main/files/ol8/nvidia-driver -o nvidia-driver
 
 curl -s https://raw.githubusercontent.com/OguzPastirmaci/oke-oracle-linux-gpu-operator/main/files/ol8/empty -o empty
+
+sudo chmod +x nvidia-driver
 ```
 
 Then build the GPU driver image with the below command and push it to your registry:
@@ -115,7 +117,7 @@ helm install --wait \
   --set operator.defaultRuntime=crio \
   --set driver.repository=oguzpastirmaci \
   --set driver.version=525.125.06 \
-  --set toolkit.version=v1.14.0-centos7
+  --set toolkit.version=v1.14.1-centos7
 ```
 
 
