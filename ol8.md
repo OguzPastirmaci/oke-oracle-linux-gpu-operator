@@ -58,7 +58,7 @@ docker build . -t oguzpastirmaci/cuda:$CUDA_VERSION-base-oraclelinux8 --build-ar
 ```
 
 ### Push the image to your registry
-Push the image you built in your previous step to your registry with `docker push <your repository>/cuda:12.0.1-base-oraclelinux8 
+Push the image you built in your previous step to your registry with `docker push <your repository>/cuda:12.0.1-base-oraclelinux8`. 
 
 Example:
 
