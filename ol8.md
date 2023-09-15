@@ -115,7 +115,7 @@ helm install --wait \
   --set operator.defaultRuntime=crio \
   --set driver.repository=<The repository that you pushed your image> \
   --set driver.version=<The driver version in your pushed image. Only the version, don't add ol8.8 at the end> \
-  --set toolkit.version=v1.14.0-centos7
+  --set toolkit.version=v1.14.1-centos7
 ```
 
 Example:
