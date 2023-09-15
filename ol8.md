@@ -28,8 +28,8 @@ sudo dnf install -y git
 git clone https://gitlab.com/nvidia/container-images/cuda.git
 ```
 
-### Use the Rocky Linux 8 Dockerfiles as base
-We will use the Rocky Linux 8 Dockerfiles as our base and make changes.
+### Use the Rocky Linux 8 Dockerfile as base
+We will use the Rocky Linux 8 Dockerfile as our base and make changes.
 
 
 ```
