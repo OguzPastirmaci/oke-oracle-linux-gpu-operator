@@ -1,4 +1,4 @@
-## Building the CUDA images with Oracle Linux 8
+## Building the CUDA and GPU driver container images with Oracle Linux 8
 
 ### Deploy an Oracle Linux 8 instance and install Docker
 
