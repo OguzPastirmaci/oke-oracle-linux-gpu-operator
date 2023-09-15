@@ -1,4 +1,4 @@
-FROM <your repository>/cuda:12.2.0-base-oraclelinux8
+FROM <your repository>/cuda:<CUDA version you built>-base-oraclelinux8
 
 ENV NVIDIA_VISIBLE_DEVICES=void
 
