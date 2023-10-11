@@ -1,8 +1,8 @@
 ## Building the CUDA and GPU driver container images with Oracle Linux 8
 
-### Deploy an Oracle Linux 8 instance and install Docker
+### Deploy an Oracle Linux 8.8 instance and install Docker
 
-Deploy an Oracle Linux 8 instance and install Docker. You can use the default UEK kernel. You don't need a GPU instance, a regular E3/E4 will work. Increase the boot volume to 150+ GB and have 4+ cores.
+Deploy an Oracle Linux 8.8 instance and install Docker. You can use the default UEK kernel. You don't need a GPU instance, a regular E3/E4 will work. Increase the boot volume to 150+ GB and have 4+ cores.
 
 Tested with [Oracle-Linux-8.8-2023.08.16-0](https://docs.oracle.com/en-us/iaas/images/image/7afc0d76-6d2d-4060-ba3b-34fb8c0080a4/).
 
