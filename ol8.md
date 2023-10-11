@@ -74,7 +74,7 @@ IMPORTANT: Make sure that you change the first line in the Dockerfile to match y
 `FROM <your repository>/cuda:<CUDA version you built>-base-oraclelinux8`
 
 ```
-mkdir -p ~/driver && cd  ~/driver
+mkdir -p ~/driver && cd ~/driver
 
 curl -s https://raw.githubusercontent.com/OguzPastirmaci/oke-oracle-linux-gpu-operator/main/files/ol8/Dockerfile -o Dockerfile
 
