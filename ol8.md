@@ -113,11 +113,11 @@ Finally, when the GPU driver image is available in your registry, you can deploy
 helm install --wait \
   -n gpu-operator --create-namespace \
   gpu-operator nvidia/gpu-operator \
-  --version v23.6.1 \
+  --version v23.9.1 \
   --set operator.defaultRuntime=crio \
   --set driver.repository=<The repository that you pushed your image> \
   --set driver.version=<The driver version in your pushed image. Only the version, don't add ol8.8 at the end> \
-  --set toolkit.version=v1.14.1-centos7
+  --set toolkit.version=v1.14.5-ubi8
 ```
 
 Example:
@@ -126,11 +126,11 @@ Example:
 helm install --wait \
   -n gpu-operator --create-namespace \
   gpu-operator nvidia/gpu-operator \
-  --version v23.6.1 \
+  --version v23.9.1 \
   --set operator.defaultRuntime=crio \
   --set driver.repository=oguzpastirmaci \
-  --set driver.version=525.125.06 \
-  --set toolkit.version=v1.14.1-centos7
+  --set driver.version=535.54.03 \
+  --set toolkit.version=v1.14.5-ubi8
 ```
 
 
