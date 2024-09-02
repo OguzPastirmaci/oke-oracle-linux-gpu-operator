@@ -129,7 +129,7 @@ helm install --wait \
   --version v24.6.1 \
   --set operator.defaultRuntime=crio \
   --set driver.repository=oguzpastirmaci \
-  --set driver.version=550.90.07 \
+  --set driver.version=535.54.03 \
   --set toolkit.version=v1.16.1-ubi8
 ```
 
